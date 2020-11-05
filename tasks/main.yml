@@ -38,7 +38,7 @@
 - name: Get or create subnet for virtual node
   include_tasks: subnet.yml
   vars:
-    address: 10.240.0.0/16
+    address: "{{ subnet_address }}" 
     subnet_name: "{{ name }}{{ rpfx }}"
     parameter: "vnet_subnet_id"
   when: virtual_node is defined and virtual_node and vnet_subnet_id is not defined
@@ -46,7 +46,7 @@
 - name: Get or create virtual node subnet for virtual node
   include_tasks: subnet.yml
   vars:
-    address: 10.241.0.0/16
+    address: "{{ vnode_address }}"
     subnet_name: "{{ name }}{{ rpfx }}virtualnode"
     parameter: virtual_node_subnet_id
   when: virtual_node is defined and virtual_node and virtual_node_subnet_id is not defined
@@ -65,7 +65,7 @@
 - name: Get or create subnet for network plugin
   include_tasks: subnet.yml
   vars:
-    address: 10.240.0.0/16
+    address: "{{ subnet_address }}"
     subnet_name: "{{ name }}{{ rpfx }}"
     parameter: "vnet_subnet_id"
   when: network_plugin is defined

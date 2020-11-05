@@ -15,7 +15,7 @@
 
 - name: Check virtual_node parameter virtual_node_subnet_id
   set_fact:
-    ao_vn: "{{ ao_vn | combine({'subnet_resource_id': virtual_node_subnet_id}) }}"
+    ao_vn: "{{ ao_vn | combine({'SubnetName': virtual_node_subnet_id }) }}"
   when: virtual_node is defined and virtual_node and virtual_node_subnet_id is defined
 
 - name: "Construct addon parameter for aks {{ name }}"

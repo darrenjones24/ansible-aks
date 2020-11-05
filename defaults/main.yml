@@ -19,7 +19,8 @@ os_type_bak: Linux
 
 network_plugin_bak: kubenet
 load_balancer_sku: standard
-
+vnode_address: 10.241.0.0/16
+subnet_address: 10.240.0.0/16
 agent_pool_type: AvailabilitySet
 
 parameter_list:
@@ -58,3 +59,5 @@ parameter_list:
   - client_secret
   - load_balancer_sku
   - agent_pool_type
+  - subnet_address
+  - vnode_address
